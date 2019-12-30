@@ -1,7 +1,14 @@
+<label>Server name</label>
+<!-- <input type = "text" class="form-control" (input) = "onUpdateServerName($event)"> -->
+<input type = "text" class="form-control" [(ngModel)] = "serverName">
+<p>Server name is : {{serverName}}</p>
+
 <h4>We are in the Server Component</h4>
 <h3>Checking string interpolation : Server with ID = {{serverId}} and Status = {{serverStatus}} 
     or with a method status is : {{getServerStatus()}}</h3>
 
 <h3>Next we see Property Binding</h3>
-<button class="btn btn-primary" [disabled] = "allowNewServer">Test</button>    
-<app-servers></app-servers>
+<button class="btn btn-primary" [disabled] = "!allowNewServer" (click) = "onCreateServer()">Test</button>    
+
+<h3>Next we learn about Event Binding</h3>
+<h4>{{serverCreationStatus}}</h4>
