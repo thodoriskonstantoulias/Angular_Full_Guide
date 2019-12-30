@@ -1,14 +1,22 @@
 <label>Server name</label>
-<!-- <input type = "text" class="form-control" (input) = "onUpdateServerName($event)"> -->
 <input type = "text" class="form-control" [(ngModel)] = "serverName">
-<p>Server name is : {{serverName}}</p>
 
 <h4>We are in the Server Component</h4>
-<h3>Checking string interpolation : Server with ID = {{serverId}} and Status = {{serverStatus}} 
-    or with a method status is : {{getServerStatus()}}</h3>
+<h3 [ngStyle] = "{backgroundColor:getColor()}" [ngClass] = "{online : serverStatus==='online'}">
+    Checking string interpolation : Server with ID = {{serverId}}  status is : {{getServerStatus()}}
+</h3>
 
 <h3>Next we see Property Binding</h3>
 <button class="btn btn-primary" [disabled] = "!allowNewServer" (click) = "onCreateServer()">Test</button>    
 
 <h3>Next we learn about Event Binding</h3>
-<h4>{{serverCreationStatus}}</h4>
+<h4 *ngIf="serverCreated; else noServer">{{serverCreationStatus}}</h4>
+<ng-template #noServer>
+   <p>{{serverCreationStatus}}</p> 
+</ng-template>    
+
+<h3>Testing ngFor directive</h3>
+<p *ngFor="let s of servers">{{s}}</p>
+
+<h3>Assignment</h3>
+<app-exercise1></app-exercise1>
