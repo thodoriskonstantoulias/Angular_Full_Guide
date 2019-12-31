@@ -8,6 +8,7 @@ import { Exercise1Component } from './exercise1/exercise1.component';
 import { Server2Component } from './server2/server2.component';
 import { CockpitComponent } from './cockpit/cockpit.component';
 import { ServerElementComponent } from './server-element/server-element.component';
+import { DirectivesChapterComponent } from './directives-chapter/directives-chapter.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ServerElementComponent } from './server-element/server-element.componen
     Exercise1Component,
     Server2Component,
     CockpitComponent,
-    ServerElementComponent
+    ServerElementComponent,
+    DirectivesChapterComponent
   ],
   imports: [
     BrowserModule,
