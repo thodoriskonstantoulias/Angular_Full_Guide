@@ -9,6 +9,8 @@ import { Server2Component } from './server2/server2.component';
 import { CockpitComponent } from './cockpit/cockpit.component';
 import { ServerElementComponent } from './server-element/server-element.component';
 import { DirectivesChapterComponent } from './directives-chapter/directives-chapter.component';
+import { BasicHighlightDirective } from './basic-highlight/basic-highlight.directive';
+import { BetterHighlightDirective } from './better-highlight/better-highlight.directive';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { DirectivesChapterComponent } from './directives-chapter/directives-chap
     Server2Component,
     CockpitComponent,
     ServerElementComponent,
-    DirectivesChapterComponent
+    DirectivesChapterComponent,
+    BasicHighlightDirective,
+    BetterHighlightDirective
   ],
   imports: [
     BrowserModule,
