@@ -9,7 +9,7 @@ export class DirectivesChapterComponent implements OnInit {
 
   numbers = [1, 2, 3, 4, 5];
   onlyOdd = false;
-
+  value : string = "50";
   constructor() { }
 
   ngOnInit() {
