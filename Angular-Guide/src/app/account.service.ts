@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable({
     providedIn: 'root'
@@ -20,6 +20,9 @@ export class AccountService{
         }
       ];
 
+    //Pass data to components through the service 
+    statusUpdated = new EventEmitter<string>();
+
     addAccount(name: string, status: string){
         this.accounts.push({name: name, status: status});
     }  
@@ -27,4 +30,5 @@ export class AccountService{
     updateStatus(id: number, newStatus: string){
         this.accounts[id].status = newStatus;
     }
+
 }
