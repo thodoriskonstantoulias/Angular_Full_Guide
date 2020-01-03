@@ -13,6 +13,7 @@ import { UserComponent } from './users/user/user.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './auth-guard.service';
+import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { AuthGuard } from './auth-guard.service';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AuthGuard], 
+  providers: [AuthGuard,CanDeactivateGuard], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
