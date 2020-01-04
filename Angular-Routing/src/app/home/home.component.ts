@@ -1,10 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/Rx';
-import { Observer } from 'rxjs/Observer';
-import { Subscription } from 'rxjs/Subscription';
+import {Observable,Subscription,Observer,interval} from 'rxjs';
+import {map} from 'rxjs/operators';
 import { UsersService } from '../users.service';
 
 @Component({
@@ -21,11 +19,11 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     //1st example of Observables
-    const myNumbers = Observable.interval(1000).map(
+    const myNumbers = interval(1000).pipe(map(
       (data : number) => {
         return data * 2;
       }
-    );
+    ));
     this.numbersObsSubs =  myNumbers.subscribe(
       (number:number) => {
         console.log(number);
