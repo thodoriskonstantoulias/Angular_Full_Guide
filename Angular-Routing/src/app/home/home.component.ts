@@ -5,6 +5,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
 import { Observer } from 'rxjs/Observer';
 import { Subscription } from 'rxjs/Subscription';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-home',
@@ -16,11 +17,15 @@ export class HomeComponent implements OnInit, OnDestroy {
   numbersObsSubs : Subscription;
   customObsSubs : Subscription;
 
-  constructor(private router : Router,private authService : AuthService) { }
+  constructor(private router : Router,private authService : AuthService,private usersService:UsersService) { }
 
   ngOnInit() {
     //1st example of Observables
-    const myNumbers = Observable.interval(1000);
+    const myNumbers = Observable.interval(1000).map(
+      (data : number) => {
+        return data * 2;
+      }
+    );
     this.numbersObsSubs =  myNumbers.subscribe(
       (number:number) => {
         console.log(number);
@@ -51,6 +56,10 @@ export class HomeComponent implements OnInit, OnDestroy {
         console.log('completed!');
       }
     );
+  }
+
+  onActivate(){
+    this.usersService.userActivated.next(4);
   }
 
   ngOnDestroy(){
