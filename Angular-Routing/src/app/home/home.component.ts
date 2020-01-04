@@ -1,27 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
 import { Observer } from 'rxjs/Observer';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
+
+  numbersObsSubs : Subscription;
+  customObsSubs : Subscription;
 
   constructor(private router : Router,private authService : AuthService) { }
 
   ngOnInit() {
     //1st example of Observables
-    // const myNumbers = Observable.interval(1000);
-    // myNumbers.subscribe(
-    //   (number:number) => {
-    //     console.log(number);
-    //   }
-    // );
+    const myNumbers = Observable.interval(1000);
+    this.numbersObsSubs =  myNumbers.subscribe(
+      (number:number) => {
+        console.log(number);
+      }
+    );
 
     //2nd example of Observables
     const myObservable = Observable.create((observer:Observer<string>) => {
@@ -36,7 +40,7 @@ export class HomeComponent implements OnInit {
       }, 5000);
     });
 
-    myObservable.subscribe(
+    this.customObsSubs =  myObservable.subscribe(
       (data:string) => {
         console.log(data);
       },
@@ -47,6 +51,11 @@ export class HomeComponent implements OnInit {
         console.log('completed!');
       }
     );
+  }
+
+  ngOnDestroy(){
+    this.numbersObsSubs.unsubscribe();
+    this.customObsSubs.unsubscribe();
   }
 
   onLoadServers(){
