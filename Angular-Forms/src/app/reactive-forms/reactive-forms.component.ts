@@ -22,10 +22,20 @@ export class ReactiveFormsComponent implements OnInit {
       'gender' : new FormControl('male'),
       'hobbies' : new FormArray([])
     });
+    // this.signUpForm.valueChanges.subscribe(
+    //   (value) => console.log(value)
+    // );
+    this.signUpForm.statusChanges.subscribe(
+      (status) => console.log(status)
+    );
+    this.signUpForm.patchValue({
+      username : 'Ted'
+    });
   }
 
   onSubmit(){
     console.log(this.signUpForm);
+    this.signUpForm.reset();
   }
 
   onAddHobby(){
