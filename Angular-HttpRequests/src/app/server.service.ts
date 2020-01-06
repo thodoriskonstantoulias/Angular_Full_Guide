@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
+import {HttpClient} from '@angular/common/http';
+import { catchError } from 'rxjs/operators'; 
+import { throwError } from 'rxjs';
 
 @Injectable({
     providedIn : 'root' 
@@ -15,6 +17,9 @@ export class ServerService {
     }
 
     getServers(){
-        return this.http.get('https://angular-full-guide.firebaseio.com/data.json');
+        return this.http.get('https://angular-full-guide.firebaseio.com/data.json')
+                   .pipe(catchError(error => {
+                       return throwError('Something went wrong');
+                   }));
     }
 }
