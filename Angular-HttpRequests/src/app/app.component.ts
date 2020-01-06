@@ -40,4 +40,13 @@ export class AppComponent {
       (error) => console.log(error)   
     );
   }
+
+  onGet(){
+    this.serverService.getServers().subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => console.log(error) 
+    );
+  }
 }
