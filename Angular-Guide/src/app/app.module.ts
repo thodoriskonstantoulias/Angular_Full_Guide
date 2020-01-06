@@ -17,6 +17,7 @@ import { AccountComponent } from './services-chapter/account/account.component';
 import { NewAccountComponent } from './services-chapter/new-account/new-account.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { ShortenPipe } from './pipes/shorten.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ShortenPipe } from './pipes/shorten.pipe';
     AccountComponent,
     NewAccountComponent,
     PipesComponent,
-    ShortenPipe
+    ShortenPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
