@@ -12,6 +12,12 @@ export class PipesComponent implements OnInit {
   ngOnInit() {
   }
 
+  appStatus = new Promise((resolve,reject) => {
+    setTimeout(() => {
+      resolve('stable');
+    }, 2000);
+  }); 
+
   servers = [
     {
       instanceType: 'medium',
@@ -40,7 +46,7 @@ export class PipesComponent implements OnInit {
   ];
 
   filteredStatus = '';
-  
+
   getStatusClasses(server: {instanceType: string, name: string, status: string, started: Date}) {
     return {
       'list-group-item-success': server.status === 'stable',
