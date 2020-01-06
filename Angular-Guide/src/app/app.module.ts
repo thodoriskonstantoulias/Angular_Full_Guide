@@ -15,6 +15,7 @@ import { UnlessDirective } from './unless.directive';
 import { ServicesChapterComponent } from './services-chapter/services-chapter.component';
 import { AccountComponent } from './services-chapter/account/account.component';
 import { NewAccountComponent } from './services-chapter/new-account/new-account.component';
+import { PipesComponent } from './pipes/pipes.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NewAccountComponent } from './services-chapter/new-account/new-account.
     UnlessDirective,
     ServicesChapterComponent,
     AccountComponent,
-    NewAccountComponent
+    NewAccountComponent,
+    PipesComponent
   ],
   imports: [
     BrowserModule,
