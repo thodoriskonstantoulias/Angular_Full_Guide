@@ -16,6 +16,7 @@ import { ServicesChapterComponent } from './services-chapter/services-chapter.co
 import { AccountComponent } from './services-chapter/account/account.component';
 import { NewAccountComponent } from './services-chapter/new-account/new-account.component';
 import { PipesComponent } from './pipes/pipes.component';
+import { ShortenPipe } from './pipes/shorten.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { PipesComponent } from './pipes/pipes.component';
     ServicesChapterComponent,
     AccountComponent,
     NewAccountComponent,
-    PipesComponent
+    PipesComponent,
+    ShortenPipe
   ],
   imports: [
     BrowserModule,
